@@ -1,0 +1,154 @@
+<div
+  style="
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    height: 100vh;
+  "
+>
+  <div
+    style="
+      background-color: #f5f5f5;
+      width: 40vw;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      overflow: auto;
+      max-width: 40vw;
+    "
+  >
+    <h2
+      style="
+        text-align: center;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-weight: 600;
+      "
+    >
+      Contact Us
+    </h2>
+    <hr style="margin: 0 auto; width: 90%" />
+    <div>
+      <form
+        [formGroup]="reactiveForm"
+        style="display: flex; flex-direction: column; margin: 10px"
+        (ngSubmit)="onSubmit()"
+        novalidate
+      >
+        <div class="form-group">
+          <label for="name">Name</label>
+
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            name="name"
+            placeholder="Your name"
+            formControlName="name"
+            style="width: 80%"
+          />
+        </div>
+        <small
+          class="alert alert-danger"
+          role="alert"
+          *ngIf="
+            reactiveForm.controls['name']?.errors &&
+            reactiveForm.controls['name']?.touched
+          "
+        >
+          Name is required*
+        </small>
+        <div class="form-group" formArrayName="emails">
+          <label for="email">Your E-mail</label>
+          <div style="display: flex; flex-direction: column; width: 200px">
+            <ng-container *ngFor="let email of emails.controls; let i = index">
+              <input
+                type="email"
+                class="form-control"
+                id="email-{{ i }}"
+                name="email-{{ i }}"
+                placeholder="Your email {{ i + 1 }}"
+                [formControlName]="i"
+                style="margin-bottom: 10px"
+              />
+              <small
+                class="alert alert-danger"
+                role="alert"
+                id="email-error-{{ i }}"
+                *ngIf="getEmailValidity(i)"
+              >
+                Email {{ i + 1 }} is required*
+              </small>
+            </ng-container>
+          </div>
+          <button
+            type="button"
+            style="height: 40px; width: 60px; margin-left: 10px"
+            (click)="addEmail()"
+          >
+            Add
+          </button>
+        </div>
+
+        <div class="form-group" formArrayName="phones">
+          <label for="phone">Your Phone</label>
+
+          <div style="display: flex; flex-direction: column">
+            <ng-container *ngFor="let phone of phones.controls; let i = index">
+              <input
+                type="text"
+                class="form-control"
+                id="phone-{{ i }}"
+                placeholder="Your phone {{ i + 1 }}"
+                [formControlName]="i"
+                style="margin-bottom: 10px"
+              />
+              <small
+                class="alert alert-danger"
+                role="alert"
+                id="phone-error-{{ i }}"
+                *ngIf="getPhoneValidity(i)"
+              >
+                Phone {{ i + 1 }} is required*
+              </small>
+            </ng-container>
+          </div>
+          <button
+            type="button"
+            style="height: 40px; width: 60px; margin-left: 10px"
+            (click)="addPhone()"
+          >
+            Add
+          </button>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Your Message</label>
+          <textarea
+            type="text"
+            class="form-control"
+            id="message"
+            name="message"
+            placeholder="Please enter your message here..."
+            formControlName="message"
+          ></textarea>
+        </div>
+        <small
+          class="alert alert-danger"
+          role="alert"
+          *ngIf="
+            reactiveForm.controls['message'].errors &&
+            reactiveForm.controls['message'].touched
+          "
+        >
+          Message is required*</small
+        >
+        <button
+          type="submit"
+          class="btn btn-primary"
+          style="height: 50px; width: 90px; align-self: flex-end"
+        >
+          Submit
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

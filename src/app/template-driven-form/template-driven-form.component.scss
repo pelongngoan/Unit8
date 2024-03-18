@@ -1,0 +1,42 @@
+.form-group {
+  margin: 0.5rem;
+  display: flex;
+}
+label {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold;
+  width: 20%;
+  text-align: right;
+}
+input {
+  height: 30px;
+  margin-left: 20px;
+  width: 80%;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+small {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: red;
+  margin-left: 25%;
+}
+::placeholder {
+  text-indent: 6px;
+}
+input[type="text"],
+textarea {
+  text-indent: 6px;
+}
+textarea {
+  height: 100px;
+  width: 80%;
+  margin-left: 20px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+button {
+  background-color: #548bc5;
+}
+button:hover {
+  background-color: #3f729b;
+}
