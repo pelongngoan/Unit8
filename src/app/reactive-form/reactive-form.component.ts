@@ -72,8 +72,13 @@ export class ReactiveFormComponent {
     if (this.reactiveForm.valid) {
       console.log(this.reactiveForm.value);
     } else {
-      console.log('Form is invalid');
       Object.values(this.reactiveForm.controls).forEach((control) => {
+        control.markAsTouched();
+      });
+      this.emails.controls.forEach((control) => {
+        control.markAsTouched();
+      });
+      this.phones.controls.forEach((control) => {
         control.markAsTouched();
       });
     }
