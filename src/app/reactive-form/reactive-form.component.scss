@@ -2,6 +2,11 @@
   margin: 0.5rem;
   display: flex;
 }
+form {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
 label {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-weight: bold;
@@ -44,4 +49,42 @@ button {
 }
 button:hover {
   background-color: #3f729b;
+}
+h2 {
+  text-align: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 600;
+}
+.add-btn {
+  height: 40px;
+  width: 60px;
+  margin-left: 10px;
+}
+hr {
+  margin: 0 auto;
+  width: 90%;
+}
+.container {
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  height: 100vh;
+}
+.card {
+  background-color: #f5f5f5;
+  width: 40vw;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  overflow: auto;
+  max-width: 40vw;
+}
+.ng-container {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+}
+.submit-btn {
+  height: 50px;
+  width: 90px;
+  align-self: flex-end;
 }
